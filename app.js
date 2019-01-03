@@ -6,6 +6,10 @@ const zomato = require('./papi/zomatoRequests.js');
 const app = express();
 const port = process.env.PORT;
 
+app.get('/', (req, res) => {
+    res.send("Hello");
+}) 
+
 app.get('/getCuisineTypes', (req, res) => {
     zomato.getCuisines(req.query.lat, req.query.long, (err, res2, body) => {
         if (err) {
