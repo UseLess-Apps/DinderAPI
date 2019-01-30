@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/UseLess-Apps/DinderAPI/issues"
   },
-  "homepage": "https://github.com/UseLess-Apps/DinderAPI#readme"
+  "homepage": "https://github.com/UseLess-Apps/DinderAPI#readme",
+  "engines" : {
+	"node": "10.x"
+  }
 }
