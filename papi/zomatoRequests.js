@@ -11,7 +11,7 @@ var options = {
 
 }
 
-export function getCuisines(lat, long, callback) {
+module.exports.getCuisines = function(lat, long, callback) {
     var req = options;
     req.url = req.url + `cuisines?lat=${lat}&lon=${long}`;
     request(req, (error, res, body) => {
@@ -19,7 +19,7 @@ export function getCuisines(lat, long, callback) {
     });
 }
 
-export function search(lat, long, start, cuisines, callback) {
+module.exports.search = function(lat, long, start, cuisines, callback) {
     var req = options;
     req.url = req.url + `search?lat=${lat}&lon=${long}&start=${start}&cuisines=${cuisines}`;
     request(req, (error, res, body) => {
