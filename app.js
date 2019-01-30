@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const zomato = require('./papi/zomatoRequests.js');
+import { getCuisines, getMatches} from './papi/zomatoRequests.js';
 
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT;
 
 app.get('/', (req, res) => {
@@ -12,7 +13,7 @@ app.get('/', (req, res) => {
 }) 
 
 app.get('/getCuisineTypes', (req, res) => {
-    zomato.getCuisines(req.query.lat, req.query.long, (err, res2, body) => {
+    getCuisines(req.query.lat, req.query.long, (err, res2, body) => {
         if (err) {
             res.status(500).send("Error in zomato Api");
         }
@@ -29,7 +30,7 @@ app.post('/getMatches', (req, res) => {
         cuisinesString += `${element},`
     });
     cuisinesString = cuisinesString.substring(0, cuisinesString.length - 1);
-    zomato.search(req.query.lat, req.query.long, req.query.start, cuisinesString, (err, res2, body2) => {
+    search(req.query.lat, req.query.long, req.query.start, cuisinesString, (err, res2, body2) => {
         if (err) {
             res.status(500).send("Error in zomato Api");
         }
