@@ -23,7 +23,7 @@ module.exports.getCuisines = function(lat, long) {
 
 module.exports.search = function(lat, long, start, cuisines) {
     let req = Object.create(options);
-    req.url = req.url + `search?lat=${lat}&lon=${long}&start=${start}&cuisines=${cuisines}`;
+    req.url = req.url + `search?lat=${lat}&lon=${long}&start=${start}&cuisines=${cuisines}&sort=real_distance`;
     // request(req, (error, res, body) => {
     //     callback(error, res, JSON.parse(body));
     // })
