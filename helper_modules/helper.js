@@ -5,6 +5,8 @@ module.exports.cleanRestaurant = function(blob) {
         "name": blob.restaurant.name,
         "thumbnail": blob.restaurant.thumb,
         "location": blob.restaurant.location,
-        "price": blob.restaurant.price_range
+        "price": blob.restaurant.price_range,
+        "user_rating": blob.restaurant.user_rating,
+        "currency": blob.restaurant.currency
     }
 }
